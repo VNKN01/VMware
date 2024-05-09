@@ -14,7 +14,7 @@ OVF (Open Virtualization Format) - Consists of three files with extensions .mf,.
 
 ![2](https://github.com/VNKN01/VMware/assets/44769452/c20b4808-0dd0-48d3-8baa-4dce2bdbcb4f)
 
-<h2>Frist OVA Flile into ESXI server with single Commands</h2> <br>
+<h2>Scond OVA Flile Import into ESXI server with single Commands</h2> <br>
 
 <b>ovftool.exe -ds="Windows Update" -dm=thin -n=Ubuntu-Kubernetes "G:\ubuntu\ubuntu-24.04-live-server-amd64.ova" vi://192.168.62.53</b> </b><br></br>
 
