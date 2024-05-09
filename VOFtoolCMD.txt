@@ -1,7 +1,7 @@
- cd "C:\Program Files\VMware\VMware OVF Tool"
+cd "C:\Program Files\VMware\VMware OVF Tool" (Go to the tool's location where ovftool.exe is located. )
+ovftool.exe vi://192.168.62.53/micostack   ( Check the connectivity by entering the username and password for the ESXi server, then list all the virtual machines.)
 
- ovftool.exe vi://192.168.62.53/micostack
-
+Export OVA File into EXSI Server data store
 ovftool.exe vi://192.168.62.53/micostack "F:\Ubuntu Server Minimal installation ova\ubuntu-24.04-live-server-amd64.ova"
 
 Import OVA File into EXSI Server data store
