@@ -22,3 +22,4 @@ OVF (Open Virtualization Format) - Consists of three files with extensions .mf,.
 
 <h4>Note: </h4>
 We only need to change the file extension for exporting and importing.OVA to.OVF. This simple adjustment triggers the automatic creation of three files. For instance,<b>ovftool.exe vi://192.168.62.53/micostack "F:\Ubuntu Server Minimal installation ovf\ubuntu-24.04-live-server-amd64.ovf"</b>
+https://youtu.be/QFyCF1b6BwI
