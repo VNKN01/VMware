@@ -1,0 +1,8 @@
+ cd "C:\Program Files\VMware\VMware OVF Tool"
+
+ ovftool.exe vi://192.168.62.53/micostack
+
+ovftool.exe vi://192.168.62.53/micostack "F:\Ubuntu Server Minimal installation ova\ubuntu-24.04-live-server-amd64.ova"
+
+Import OVA File into EXSI Server data store
+ovftool.exe -ds="Windows Update" -dm=thin -n=Ubuntu-Kubernetes "G:\ubuntu\Ubuntu-docker.ova" vi://192.168.62.53
