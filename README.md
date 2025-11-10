@@ -1,5 +1,68 @@
+# VMware OVF Tool Usage Guide (Source/Destination Remain Same MAC Address)
+
+[![VMware OVF Tool](https://img.shields.io/badge/VMware-OVF_Tool-blue)](https://www.vmware.com/support/developer/ovf/)
+
+This guide explains how to **export** and **import** virtual machines (VMs) between ESXi hosts using the **VMware OVF Tool**, while keeping the MAC address the same.
+
+---
+
+## Table of Contents
+
+- [Step 1: Download and Install VMware OVF Tool](https://developer.broadcom.com/tools/open-virtualization-format-ovf-tool/latest)
+- [Step 2: Export VM from Source ESXi Host](#step-2-export-vm-from-source-esxi-host)  
+- [Step 3: Import VM into Destination ESXi Host](#step-3-import-vm-into-destination-esxi-host)  
+- YouTube Link: https://youtu.be/b754FYKwFJ8
+- Author: SYED HAMMAD AHMED  
+
+---
+
+## Step 1: Install VMware OVF Tool
+
+After installing VMware OVF Tool, navigate to its installation directory:
+
+```bash
+cd "C:\Program Files\VMware\VMware OVF Tool"
+
+```
+
+# VMware OVF Tool Usage Guide (Source/Destination Remain Same MAC Address)
+
+This guide explains how to **export** and **import** virtual machines (VMs) between ESXi hosts using the **VMware OVF Tool**, while keeping the MAC address the same.
+
+---
+
+
+
+## Step 2: Export VM from ESXi Host (Source: 192.168.62.56)
+
+Export the virtual machine **VNKN01-exam-01** to an `.OVA` file:
+
+```bash
+
+ovftool.exe --allowAllExtraConfig vi://root@192.168.62.56/VNKN01-exam-01 "H:\VNKN01-VMs-Backup\VNKN01-EXAM-01.OVA"
+```
+---
+
+## Step 3: Import VM into ESXi Host (Destination: 192.168.62.55)
+
+Import the exported `.OVA` file into the new ESXi host, power it on automatically, overwrite if it exists, and keep the MAC address:
+
+```bash
+
+ovftool.exe --allowAllExtraConfig --powerOn --overwrite -ds="DS-VNKN01" -dm=thin -n=VNKN01-EXAM-01 "H:\VNKN01-VMs-Backup\VNKN01-EXAM-01.ova" vi://192.168.62.55
+
+```
+---
+
+## Notes
+
+- `--allowAllExtraConfig` → Include all extra configurations.  
+- `--powerOn` → Power on the VM automatically after import.  
+- `--overwrite` → Replace an existing VM with the same name.  
+- `-dm=thin` → Use thin provisioning for disks.  
+
 # VMware
-<h1>Practical office work on EXSI Server of VNKN01</h1> <br>
+# VMware OVF Tool Usage Guide (Source/Destination are different MAC Addresses)
 <h2>VMware import and export OVA or OVF</h2> <br>
 OVA (Open Virtual Appliance) - a single file used for import and export purposes.<br>
 OVF (Open Virtualization Format) - Consists of three files with extensions .mf,.ovf and .vmdk<br><br>
@@ -23,3 +86,5 @@ OVF (Open Virtualization Format) - Consists of three files with extensions .mf,.
 <h4>Note: </h4>
 We only need to change the file extension for exporting and importing.OVA to.OVF. This simple adjustment triggers the automatic creation of three files. For instance,<b>ovftool.exe vi://192.168.62.53/micostack "F:\Ubuntu Server Minimal installation ovf\ubuntu-24.04-live-server-amd64.ovf"</b>
 https://youtu.be/QFyCF1b6BwI
+
+
